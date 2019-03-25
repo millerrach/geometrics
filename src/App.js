@@ -4,7 +4,7 @@ import WriteUp from "./components/WriteUp.jsx";
 import JuicelineExamples from './components/JuicelineExamples.jsx';
 import HondaExamples from './components/HondaExamples.jsx';
 import JubeckExamples from './components/JubeckExamples.jsx';
-import About from './components/About.jsx'
+import Thanks from './components/Thanks.jsx'
 
 
 const App = () => {
@@ -38,6 +38,7 @@ const App = () => {
   const md = screenWidth >= 992 && screenWidth < 1200;
   const lg = screenWidth >= 1200 && screenWidth < 2560;
   const xl = screenWidth >= 2560 && screenWidth < 4000;
+  const lgAndUp = screenWidth > 1200;
   const transition = "transform 2s";
   const notTop = top !== 0;
 
@@ -49,7 +50,7 @@ const App = () => {
         md={md}
         lg={lg}
         xl={xl}
-        screenWidth={screenWidth}
+        lgAndUp={lgAndUp}
       />
       <WriteUp
         xs={xs}
@@ -99,7 +100,7 @@ const App = () => {
         transition={transition}
         notTop={notTop}
       />
-      <About
+      <Thanks
         xs={xs}
         sm={sm}
         md={md}

@@ -12,7 +12,7 @@ const writeUps = [
   {
     name: "Honda",
     description:
-      "A project done for Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
+      "A project done with Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
     stack: ["JS", "jQuery", "HTML5", "CSS3", "Sass", "Jira"]
   },
   {
@@ -73,7 +73,7 @@ const WriteUp = props => {
       transition: "all 1s",
       transform: animate ? "translateY(0)" : "translateY(50px)",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? 1.5 : 2.5,
+      lineHeight: 1.5,
       fontWeight: xs ? null : 300,
       letterSpacing: xs ? 0 : "1.5px",
     },
@@ -91,7 +91,7 @@ const WriteUp = props => {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       transition: "all 1s",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? 1.5 : 2.5,
+      lineHeight: 1.5,
       width: "min-content",
     }
   };
