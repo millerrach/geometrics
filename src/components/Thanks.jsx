@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Waypoint } from 'react-waypoint';
 import Tony from '../images/us/Tony.svg';
 import Rachel from '../images/us/Rachel.svg';
+import Github from './social/Github.jsx';
+import Twitter from './social/Twitter.jsx';
+import Instagram from './social/Instagram.jsx';
+import LinkedIn from './social/LinkedIn.jsx';
 
 
-const rachelSkills = "React, JS, HTML5, CSS3, Material UI, Sass, Figma, Sketch, Git";
+const rachelSkills = "React, JavaScript, Redux, HTML5, CSS3, Sass, Material UI, Bootstrap, Git, Jira, Figma, Sketch";
 const tonySkills = "Go, JS, React, PostgreSQL, Linux, Git";
 
 const Thanks = props => {
     const { xs, sm, md, lg, xl } = props;
-    const [showLinks, setLinks] = useState(false);
     const [conHeight, setConHeight] = useState(0);
-    const _toggle = () => {
-        setLinks(!showLinks)
-    }
     useEffect(() => {
         setConHeight(document.getElementsByClassName("tContainer")[0].clientWidth)
     }, []);
+    const socialWidth = 20;
     const styles = {
         Thanks: {
             display: "grid",
@@ -111,8 +111,9 @@ const Thanks = props => {
             padding: "1rem 0",
         },
         links: {
-            opacity: showLinks ? 1 : 0,
-            transition: "opacity 1s",
+            display: "grid",
+            gridAutoColumns: "1fr",
+            gridTemplateAreas: `"gith . link . inst . twit"`,
         },
         siteBottom: {
             position: "absolute",
@@ -129,7 +130,12 @@ const Thanks = props => {
                     <div className="name" style={styles.name}>Tony</div>
                     <a className="email" style={styles.email} href="mailto:mail@tonyschmidt.io" target="_blank" rel="noopener noreferrer">mail@tonyschmidt.io</a>
                     <div className="skills" style={styles.skills}>{tonySkills}</div>
-                    <div className="links" style={styles.links}></div>
+                    <div className="links" style={styles.links}>
+                        <Github style={{ gridArea: "gith" }} width={socialWidth} absolute={true} url="https://github.com/antschmidt" />
+                        <LinkedIn style={{ gridArea: "link" }} width={socialWidth} absolute={true} url="https://www.linkedin.com/in/4anthonyschmidt/" />
+                        <Instagram style={{ gridArea: "inst" }} width={socialWidth} absolute={true} url="https://www.instagram.com/antschmidt/" />
+                        <Twitter style={{ gridArea: "twit" }} width={socialWidth} absolute={true} url="https://twitter.com/tonyschmidt" />
+                    </div>
                 </div>
             </div>
             <div className="rContainer" style={styles.rContainer}>
@@ -138,12 +144,12 @@ const Thanks = props => {
                     <div className="name" style={styles.name}>Rachel</div>
                     <a className="email" style={styles.email} href="mailto:mail@rachelmiller.io" target="_blank" rel="noopener noreferrer">mail@rachelmiller.io</a>
                     <div className="skills" style={styles.skills}>{rachelSkills}</div>
-                    <div className="links" style={styles.links}></div>
+                    <div className="links" style={styles.links}>
+                        <Github style={{ gridArea: "git" }} width={socialWidth} absolute={true} url="https://github.com/millerrach" />
+                        <LinkedIn style={{ gridArea: "link" }} width={socialWidth} absolute={true} url="https://codepen.io/rachelmiller_io/" />
+                    </div>
                 </div>
             </div>
-            <Waypoint onEnter={_toggle} onLeave={_toggle}>
-                <div className="siteBottom" style={styles.siteBottom}></div>
-            </Waypoint>
         </div >
     )
 }

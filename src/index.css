@@ -20,11 +20,14 @@ img {
   width: 100%;
 }
 
+
+/* Email link styling and hover */
+
 :root {
   --linkColor: #A8C1C8;
 }
 
-a {
+.email {
   background:
      linear-gradient(
        to bottom, var(--linkColor) 0%,
@@ -38,6 +41,8 @@ a {
   transition: background-size .2s;
 }
 
-a:hover {
+.email:hover {
   background-size: 4px 8px;
 }
+
+/* End email link styling */
