@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 
 const LinkedIn = props => {
     const [hover, setHover] = useState(false);
-    const { width, absolute, url } = props;
+    const { width, absolute, url, touchscreen } = props;
     const styles = {
         linkedIn: {
             position: absolute ? "absolute" : null,
             transition: "all 500ms",
-            width: hover ? width + 5 : width,
+            width: hover && !touchscreen ? width + 5 : width,
         }
     }
     return (

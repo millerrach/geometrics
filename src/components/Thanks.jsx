@@ -14,9 +14,13 @@ const tonySkills = "Go, JS, React, PostgreSQL, Linux, Git";
 const Thanks = props => {
     const { xs, sm, md, lg, xl } = props;
     const [conHeight, setConHeight] = useState(0);
+    const [touchscreen, setTouchscreen] = useState(false);
     useEffect(() => {
         setConHeight(document.getElementsByClassName("tContainer")[0].clientWidth)
     }, []);
+    window.addEventListener('touchstart', function () {
+        setTouchscreen(true);
+    });
     const socialWidth = 20;
     const styles = {
         Thanks: {
@@ -132,10 +136,10 @@ const Thanks = props => {
                     <a className="email" style={styles.email} href="mailto:mail@tonyschmidt.io" target="_blank" rel="noopener noreferrer">mail@tonyschmidt.io</a>
                     <div className="skills" style={styles.skills}>{tonySkills}</div>
                     <div className="links" style={styles.links}>
-                        <Github style={{ gridArea: "gith" }} width={socialWidth} absolute={true} url="https://github.com/antschmidt" />
-                        <LinkedIn style={{ gridArea: "link" }} width={socialWidth} absolute={true} url="https://www.linkedin.com/in/4anthonyschmidt/" />
-                        <Instagram style={{ gridArea: "inst" }} width={socialWidth} absolute={true} url="https://www.instagram.com/antschmidt/" />
-                        <Twitter style={{ gridArea: "twit" }} width={socialWidth} absolute={true} url="https://twitter.com/tonyschmidt" />
+                        <Github style={{ gridArea: "gith" }} width={socialWidth} absolute={true} touchscreen={touchscreen} url="https://github.com/antschmidt" />
+                        <LinkedIn style={{ gridArea: "link" }} width={socialWidth} absolute={true} touchscreen={touchscreen} url="https://www.linkedin.com/in/4anthonyschmidt/" />
+                        <Instagram style={{ gridArea: "inst" }} width={socialWidth} absolute={true} touchscreen={touchscreen} url="https://www.instagram.com/antschmidt/" />
+                        <Twitter style={{ gridArea: "twit" }} width={socialWidth} absolute={true} touchscreen={touchscreen} url="https://twitter.com/tonyschmidt" />
                     </div>
                 </div>
             </div>
@@ -146,8 +150,8 @@ const Thanks = props => {
                     <a className="email" style={styles.email} href="mailto:mail@rachelmiller.io" target="_blank" rel="noopener noreferrer">mail@rachelmiller.io</a>
                     <div className="skills" style={styles.skills}>{rachelSkills}</div>
                     <div className="links" style={styles.links}>
-                        <Github style={{ gridArea: "git" }} width={socialWidth} absolute={true} url="https://github.com/millerrach" />
-                        <Codepen style={{ gridArea: "link" }} width={socialWidth} absolute={true} url="https://codepen.io/rachelmiller_io/" />
+                        <Github style={{ gridArea: "git" }} width={socialWidth} absolute={true} touchscreen={touchscreen} url="https://github.com/millerrach" />
+                        <Codepen style={{ gridArea: "link" }} width={socialWidth} absolute={true} touchscreen={touchscreen} url="https://codepen.io/rachelmiller_io/" />
                     </div>
                 </div>
             </div>
