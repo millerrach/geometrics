@@ -5,6 +5,7 @@ import Github from './social/Github.jsx';
 import Twitter from './social/Twitter.jsx';
 import Instagram from './social/Instagram.jsx';
 import LinkedIn from './social/LinkedIn.jsx';
+import Codepen from './social/Codepen.jsx';
 
 
 const rachelSkills = "React, JavaScript, Redux, HTML5, CSS3, Sass, Material UI, Bootstrap, Git, Jira, Figma, Sketch";
@@ -146,7 +147,7 @@ const Thanks = props => {
                     <div className="skills" style={styles.skills}>{rachelSkills}</div>
                     <div className="links" style={styles.links}>
                         <Github style={{ gridArea: "git" }} width={socialWidth} absolute={true} url="https://github.com/millerrach" />
-                        <LinkedIn style={{ gridArea: "link" }} width={socialWidth} absolute={true} url="https://codepen.io/rachelmiller_io/" />
+                        <Codepen style={{ gridArea: "link" }} width={socialWidth} absolute={true} url="https://codepen.io/rachelmiller_io/" />
                     </div>
                 </div>
             </div>
