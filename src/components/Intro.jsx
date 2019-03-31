@@ -39,7 +39,7 @@ const Intro = props => {
         ". . . pOne pOne pOne pOne .    tone . . ."
         ". . . rach .    pTwo pTwo pTwo pTwo . . ."
         ". . .    .    .    .    .    .    . . . arro"`;
-  const svgHeight = xs ? "8rem" : sm || md || lg ? "13rem" : xl ? "25rem" : "30rem";
+  const svgHeight = xs ? "8rem" : sm || md ? "13rem" : lg ? "15rem" : xl ? "25rem" : "30rem";
   const styles = {
     Intro: {
       backgroundColor: "rgba(168, 193, 200, 0.55)",
@@ -47,7 +47,7 @@ const Intro = props => {
       width: "100%",
       height: "100vh",
       display: "grid",
-      fontSize: xs ? "2em" : sm ? "2.25em" : md || lg ? "3em" : xl ? "5em" : "8em",
+      fontSize: xs ? "2rem" : sm ? "2.25rem" : md || lg ? "4rem" : xl ? "5rem" : "8rem",
       fontWeight: 500,
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: xs ? "1.25fr 1fr 1fr .25fr" : "repeat(4, 1fr)",
@@ -64,27 +64,27 @@ const Intro = props => {
       gridArea: "pTwo",
       opacity: loaded ? 1 : 0,
       transition: "opacity 1s",
-      alignSelf: !xs ? "center" : null,
-      padding: md ? "1em 0 0 0" : lgAndUp ? "1.25em 0 0 0" : null,
-    },
-    rachel: {
-      gridArea: "rach",
-      height: svgHeight,
-      width: "auto",
-      padding: xs ? "2em 0" : md ? "1em 0 0 0" : lgAndUp ? "1.25em 0 0 0" : null,
-      opacity: loaded ? 1 : 0,
-      transition: "opacity 2s",
-      alignSelf: !xs ? "center" : null,
+      alignSelf: xs ? "start" : "end",
+      padding: md ? "1rem 0 0 0" : lgAndUp ? "1.25rem 0 0 0" : null,
     },
     tony: {
       gridArea: "tone",
       height: svgHeight,
       width: "auto",
-      padding: xs ? "2em 0" : null,
+      // padding: xs ? "2rem 0" : null,
       opacity: loaded ? 1 : 0,
       transition: "opacity 2s",
-      alignSelf: xs ? "end" : "center",
+      alignSelf: xs ? "center" : "start",
       justifySelf: "end",
+    },
+    rachel: {
+      gridArea: "rach",
+      height: svgHeight,
+      width: "auto",
+      // padding: xs ? "2rem 0" : md ? "1rem 0 0 0" : lgAndUp ? "1.25rem 0 0 0" : null,
+      opacity: loaded ? 1 : 0,
+      transition: "opacity 2s",
+      alignSelf: xs ? "center" : "end",
     },
     arrowContainer: {
       display: "grid",
@@ -94,12 +94,12 @@ const Intro = props => {
       transform: loaded ? "translateY(0)" : "translateY(-1000%)",
       opacity: loaded ? 1 : 0,
       transition: "all 2s",
+      paddingBottom: xs ? "1rem" : sm || md ? "2rem" : lg ? "4rem" : "5rem",
     },
     arrow: {
-      paddingBottom: xs || sm ? "1em" : md ? ".75em" : ".5em",
       width: "auto",
       height: xs ? 20 : sm || md || lg ? 25 : xl ? 42 : 57,
-      justifySelf: lg ? "center" : null,
+      // justifySelf: lg ? "center" : null,
     },
   };
   return (
@@ -111,7 +111,7 @@ const Intro = props => {
       <img src={Rachel} className="rachel" style={styles.rachel} alt="Rachel" />
       <img src={Tony} className="tony" style={styles.tony} alt="Tony" />
       <div style={styles.pTwo}>
-        <span style={{ gridColumn: -1, gridRow: 3 }}>We create web apps with a focus on React and Go.</span>
+        We create web apps with a focus on React and Go.
       </div>
       <div className="arrowContainer" style={styles.arrowContainer}>
         <img src={down} alt="down" style={styles.arrow} />

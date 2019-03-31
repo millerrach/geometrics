@@ -41,7 +41,7 @@ const WriteUp = props => {
       width: "100%",
       display: "grid",
       gridTemplateColumns: "repeat(12, 1fr)",
-      gridTemplateRows: "3em 1fr",
+      gridTemplateRows: xs ? "3rem 1fr" : sm || md ? "4rem 1fr" : "6rem 1fr",
       gridTemplateAreas: xs ?
         `
       ". name name name name name name name . stac stac    . "
