@@ -10,6 +10,8 @@ import Thanks from './components/Thanks.jsx'
 const App = () => {
 
   let [top, setTop] = useState(0);
+  const [conWidth, setConWidth] = useState(0);
+  const [conHeight, setConHeight] = useState(0);
 
   const getSize = () => {
     return {
@@ -21,10 +23,14 @@ const App = () => {
   let [windowSize, setWindowSize] = useState(getSize());
 
   const handleResize = () => {
+    setConHeight(document.getElementsByClassName("rContainer")[0].clientHeight);
+    setConWidth(document.getElementsByClassName("rContainer")[0].clientWidth);
     setWindowSize(getSize());
   }
 
   useEffect(() => {
+    setConHeight(document.getElementsByClassName("rContainer")[0].clientHeight);
+    setConWidth(document.getElementsByClassName("rContainer")[0].clientWidth);
     setTop(window.scrollY);
     window.addEventListener('resize', handleResize);
     return () => {
@@ -106,6 +112,8 @@ const App = () => {
         md={md}
         lg={lg}
         xl={xl}
+        conWidth={conWidth}
+        conHeight={conHeight}
       />
     </div>
   );

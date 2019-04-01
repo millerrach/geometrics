@@ -47,31 +47,29 @@ const Intro = props => {
       width: "100%",
       height: "100vh",
       display: "grid",
-      fontSize: xs ? "2rem" : sm ? "2.25rem" : md || lg ? "4rem" : xl ? "5rem" : "8rem",
+      fontSize: xs ? "2rem" : sm ? "2.25rem" : md || lg ? "3.5rem" : xl ? "5rem" : "8rem",
       fontWeight: 500,
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: xs ? "1.25fr 1fr 1fr .25fr" : "repeat(4, 1fr)",
       gridTemplateAreas: areas,
       alignContent: "center",
     },
-    pOne: {
-      gridArea: "pOne",
+    p: {
       opacity: loaded ? 1 : 0,
       transition: "opacity 1s",
-      alignSelf: xs ? "end" : "center",
+    },
+    pOne: {
+      gridArea: "pOne",
+      alignSelf: xs ? "end" : sm || md ? "center" : "start",
     },
     pTwo: {
       gridArea: "pTwo",
-      opacity: loaded ? 1 : 0,
-      transition: "opacity 1s",
-      alignSelf: xs ? "start" : "end",
-      padding: md ? "1rem 0 0 0" : lgAndUp ? "1.25rem 0 0 0" : null,
+      alignSelf: xs ? "start" : sm ? "center" : "end",
     },
     tony: {
       gridArea: "tone",
       height: svgHeight,
       width: "auto",
-      // padding: xs ? "2rem 0" : null,
       opacity: loaded ? 1 : 0,
       transition: "opacity 2s",
       alignSelf: xs ? "center" : "start",
@@ -81,7 +79,7 @@ const Intro = props => {
       gridArea: "rach",
       height: svgHeight,
       width: "auto",
-      // padding: xs ? "2rem 0" : md ? "1rem 0 0 0" : lgAndUp ? "1.25rem 0 0 0" : null,
+      padding: lgAndUp ? "2rem 0 0 0" : null,
       opacity: loaded ? 1 : 0,
       transition: "opacity 2s",
       alignSelf: xs ? "center" : "end",
@@ -105,12 +103,12 @@ const Intro = props => {
   return (
     <div id="Intro" style={styles.Intro}>
       <div
-        style={styles.pOne}>
+        style={{ ...styles.p, ...styles.pOne }}>
         Hello. We are Tony and Rachel and together we form Geometrics.
           </div>
       <img src={Rachel} className="rachel" style={styles.rachel} alt="Rachel" />
       <img src={Tony} className="tony" style={styles.tony} alt="Tony" />
-      <div style={styles.pTwo}>
+      <div style={{ ...styles.p, ...styles.pTwo }}>
         We create web apps with a focus on React and Go.
       </div>
       <div className="arrowContainer" style={styles.arrowContainer}>

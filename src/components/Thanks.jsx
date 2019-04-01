@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Tony from '../images/us/Tony.svg';
 import Rachel from '../images/us/Rachel.svg';
 import Github from './social/Github.jsx';
@@ -12,54 +12,42 @@ const rachelSkills = "React, JavaScript, Redux, HTML5, CSS3, Sass, Material UI, 
 const tonySkills = "Go, JS, React, PostgreSQL, Linux, Git";
 
 const Thanks = props => {
-    const { xs, sm, md, lg, xl } = props;
-    const [conHeight, setConHeight] = useState(0);
+    const { xs, sm, md, lg, xl, conWidth, conHeight } = props;
     const [touchscreen, setTouchscreen] = useState(false);
-    useEffect(() => {
-        setConHeight(document.getElementsByClassName("tContainer")[0].clientWidth)
-    }, []);
     window.addEventListener('touchstart', function () {
         setTouchscreen(true);
     });
-    const socialWidth = 20;
+    const socialWidth = xs ? 20 : sm || md ? 25 : 35;
     const styles = {
         Thanks: {
             display: "grid",
             gridTemplateColumns: "repeat(12, 1fr)",
-            gridTemplateRows: xs ? "1fr 1fr 1fr .5fr 1fr 1fr .5fr" : sm ? "1fr 1fr 1fr 5rem 1fr 1fr 5rem" : "repeat(6, 1fr)",
+            gridTemplateRows: xs || sm ? null : "min-content 1fr 1fr",
+            padding: xs ? "4.5rem 0" : sm ? "6rem 0" : "8rem 0",
             backgroundColor: "#F2F2F2",
+            lineHeight: 1.25,
             gridTemplateAreas: xs || sm ?
                 `
                     ". thxs thxs thxs thxs thxs thxs thxs thxs thxs thxs ."
                     ". tCon tCon tCon tCon tCon tCon tCon tCon tCon tCon ."
                     ". tCon tCon tCon tCon tCon tCon tCon tCon tCon tCon ."
-                    ". .    .    .    .    .    .    .    .    .    .    ."
                     ". rCon rCon rCon rCon rCon rCon rCon rCon rCon rCon ."
                     ". rCon rCon rCon rCon rCon rCon rCon rCon rCon rCon ."
-                    ". .    .    .    .    .    .    .    .    .    .    ."
             ` : md || lg || xl ?
                     `
-                    ". thxs thxs thxs thxs thxs .    .    .    .    .    ."
-                    ". tCon tCon tCon tCon tCon .    .    .    .    .    ."
-                    ". tCon tCon tCon tCon tCon rCon rCon rCon rCon rCon ."
-                    ". tCon tCon tCon tCon tCon rCon rCon rCon rCon rCon ."
-                    ". .    .    .    .    .    rCon rCon rCon rCon rCon ."
-                    ". .    .    .    .    .    .    .    .    .    .    ."
+                    ". thxs thxs thxs thxs thxs  .    .    .    .    .    ."
+                    ". tCon tCon tCon tCon tCon  rCon rCon rCon rCon rCon ."
+                    ". tCon tCon tCon tCon tCon  rCon rCon rCon rCon rCon ."
             ` :
                     `
-                    ". thxs thxs thxs thxs thxs .    .    .    .    .    ."
-                    ". tCon tCon tCon tCon tCon .    .    .    .    .    ."
-                    ". tCon tCon tCon tCon tCon rCon rCon rCon rCon rCon ."
-                    ". tCon tCon tCon tCon tCon rCon rCon rCon rCon rCon ."
-                    ". .    .    .    .    .    rCon rCon rCon rCon rCon ."
-                    ". .    .    .    .    .    .    .    .    .    .    ."
+                    ". . thxs thxs thxs thxs  .    .    .    .    . ."
+                    ". . tCon tCon tCon tCon  rCon rCon rCon rCon . ."
+                    ". . tCon tCon tCon tCon  rCon rCon rCon rCon . ."
             ` ,
-            lineHeight: 1.25,
         },
         heading: {
             gridArea: "thxs",
             alignSelf: xs ? "center" : "end",
-            paddingBottom: sm ? "5rem" : null,
             position: xs || sm ? null : "relative",
             top: xs || sm ? null : 30,
             fontWeight: 900,
@@ -69,12 +57,15 @@ const Thanks = props => {
         container: {
             backgroundColor: "#fff",
             width: xs || sm ? null : "90%",
-            height: conHeight,
-            position: "relative",
             display: "grid",
-            gridTemplateColumns: ".25fr min-content 1fr .25fr",
-            gridTemplateRows: "1fr min-content 1fr",
-            gridTemplateAreas:
+            gridTemplateColumns: xs ? ".5fr 1fr .5fr" : ".5fr max-content 1fr .5fr",
+            gridTemplateRows: ".5fr 1fr .5fr",
+            gridTemplateAreas: xs ?
+                `
+            ". .    ."
+            ". info ."
+            ". .    ."
+            ` :
                 `
             ". .    .    ."
             ". avat info ."
@@ -82,15 +73,18 @@ const Thanks = props => {
             `
         },
         tContainer: {
+            height: xs ? conWidth : conHeight,
             gridArea: "tCon",
+            margin: xs ? "1rem 0 4rem 0" : sm ? "3rem 0 5rem 0" : null,
         },
         rContainer: {
+            height: xs ? conWidth : null,
             gridArea: "rCon",
             justifySelf: xs || sm ? null : "end",
         },
         avatar: {
             display: xs ? "none" : null,
-            height: xs || sm ? "2.5rem" : "4rem",
+            height: xs ? "2.5rem" : sm ? "4rem" : md ? "3rem" : "6rem",
             gridArea: "avat",
             width: "auto",
         },
@@ -102,12 +96,12 @@ const Thanks = props => {
         },
         inner: {
             gridArea: "info",
-            paddingLeft: "3rem",
+            paddingLeft: xs ? null : sm ? "3rem" : md ? "1.25rem" : "4rem",
         },
         name: {
             fontSize: "2rem",
             fontWeight: 700,
-            paddingBottom: ".75rem",
+            paddingBottom: xs ? ".75rem" : sm || md ? "1rem" : "1.25rem",
         },
         email: {
             fontSize: "1.25rem",
@@ -117,12 +111,12 @@ const Thanks = props => {
         skills: {
             fontSize: "1.25rem",
             fontWeight: 500,
-            padding: xs || sm ? "1rem 0" : "1rem 0 2rem 0",
+            padding: xs ? "1rem 0" : sm || md ? "1.5rem 0 2rem 0" : "2rem 0 3rem 0",
         },
         links: {
             display: "grid",
-            gridAutoColumns: "1fr",
-            gridTemplateAreas: `"gith . link . inst . twit"`,
+            gridTemplateColumns: "repeat(4, 4rem)",
+            gridTemplateAreas: `"gith link inst twit"`,
         },
     }
     return (
