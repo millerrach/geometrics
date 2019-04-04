@@ -7,7 +7,7 @@ const writeUps = [
     name: "Juiceline",
     description:
       "Made for a juice company in Budapest, Hungary. A progressive web app that allows customers to see what's offered at the current moment.",
-    stack: ["Figma", "React", "JS", "CSS3", "Sass"]
+    stack: ["Go", "Postgres", "React", "JS", "JSX"]
   },
   {
     name: "Honda",
@@ -19,7 +19,7 @@ const writeUps = [
     name: "Jubeck Brewery",
     description:
       "This project was done for Jubeck New World Brewing so they can track their beer memberships. This web app allows them to add pints and growlers and also edit and renew memberships.",
-    stack: ["React", "Redux", "MUI", "JS", "CSS3", "Sass"]
+    stack: ["Go", "Postgres", "React", "Redux", "JS", "CSS3"]
   },
 ];
 

@@ -17,13 +17,13 @@ const Thanks = props => {
     window.addEventListener('touchstart', function () {
         setTouchscreen(true);
     });
-    const socialWidth = xs ? 20 : sm || md ? 25 : 35;
+    const socialWidth = xs ? 20 : sm || md ? 25 : 30;
     const styles = {
         Thanks: {
             display: "grid",
             gridTemplateColumns: "repeat(12, 1fr)",
             gridTemplateRows: xs || sm ? null : "min-content 1fr 1fr",
-            padding: xs ? "4.5rem 0" : sm ? "6rem 0" : "8rem 0",
+            padding: xs ? "5rem 0" : sm ? "7rem 0" : "8rem 0",
             backgroundColor: "#F2F2F2",
             lineHeight: 1.25,
             gridTemplateAreas: xs || sm ?
