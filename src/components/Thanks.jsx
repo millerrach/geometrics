@@ -8,7 +8,7 @@ import LinkedIn from './social/LinkedIn.jsx';
 import Codepen from './social/Codepen.jsx';
 
 
-const rachelSkills = "React, JavaScript, Redux, HTML5, CSS3, Sass, Material UI, Bootstrap, Git, Jira, Figma, Sketch";
+const rachelSkills = "React, JavaScript, HTML5, CSS3, Sass, Material UI, Git, Figma, Sketch";
 const tonySkills = "Go, JS, React, PostgreSQL, Linux, Git";
 
 const Thanks = props => {
